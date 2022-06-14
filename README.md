@@ -1,2 +1,2 @@
 # 7AM_Devops
-For Devops Practise
+For Devops Practise in MNP
