@@ -1,4 +1,5 @@
 #!/bin/bach
 #PRINTING HELLO WORLD SCRIPT
 
-echo "Hello World!"
+echo "Hello" 
+echo "World!"
