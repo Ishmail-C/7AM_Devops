@@ -1,3 +1,3 @@
 #!/bin/bash
 
-echo "Hello GITHUB"
+ echo "Hello GITHUB from main"
