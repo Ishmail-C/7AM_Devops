@@ -85,7 +85,7 @@ read word1
 
 exists=$(grep -c $word1 $file)
 if [[ $exists -gt 0 ]]; then
-    echo "$word1 Word was found a total of $exists lines"
+    echo "$word1 Word was found on a total of $exists lines"
 fi
 
 echo "Done with File Operations!"
