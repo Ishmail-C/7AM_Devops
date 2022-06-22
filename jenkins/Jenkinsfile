@@ -27,7 +27,7 @@ pipeline{
                     echo -e "\n \n"
                     echo -e "\t\t CPU DETAILS"
                     echo -e "\n \n"
-                    top
+                    lscpuk
                     '''
                 }
             }
@@ -37,7 +37,7 @@ pipeline{
                     echo -e "\n \n"
                     echo -e "\t\t DISK DETAILS"
                     echo -e "\n \n"
-                    df -h
+                    df -kh
                     '''
                 }
             }
