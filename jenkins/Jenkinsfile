@@ -27,7 +27,7 @@ pipeline{
                     echo -e "\n \n"
                     echo -e "\t\t CPU DETAILS"
                     echo -e "\n \n"
-                    lscpuk
+                    lscpu
                     '''
                 }
             }
