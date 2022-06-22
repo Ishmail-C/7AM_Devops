@@ -5,14 +5,15 @@ pipeline{
         stage('ip_validation'){
             steps{
                 sh '''
-                uname -a
+
+		'echo " Git intigrated with Jenkins"'
+                
+		uname -a
 
                 free -h
 
                 df -h
 		
-		'echo " Git intigrated with Jenkins"'
-
                 '''
             }
         }
