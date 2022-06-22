@@ -1,16 +1,16 @@
-pipeline{
+pipeline {
         agent any
-        stages{
-            stage('System details'){
-                steps{
-                  sh '''
-                    echo -e "\n"
-                    echo -e "SYSTEM DETAILS:"
-                    echo -e "\n"
-                    uname -a
-                    '''
-                }
-            }
-              
-        }
-}                   
+        stages{
+            stage('System details'){
+                steps{
+                  sh '''
+                    echo -e "\n"
+                    echo -e "SYSTEM DETAILS:"
+                    echo -e "\n"
+                    uname -a
+                    '''
+            }
+        }
+
+     }
+} 
