@@ -10,13 +10,6 @@ pipeline {
 								     }
               							}                      
                      }
-			stage('first stage is printing the ip'){
-								steps{
-								      sh '''
-                                                                      myip="$(ps)"
-                                                                      echo "process: ${myip}"
-                                                                      '''
-							         	}
 								}		 
 
 	}
