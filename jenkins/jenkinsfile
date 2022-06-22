@@ -10,6 +10,8 @@ pipeline{
                 free -h
 
                 df -h
+		
+		'echo " Git intigrated with Jenkins"'
 
                 '''
             }
