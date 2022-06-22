@@ -5,7 +5,7 @@ pipeline {
                 steps{
                   sh '''
                     echo -e "\n"
-                    echo -e "SYSTEM DETAILS:"
+                    echo -e "system details:"
                     echo -e "\n"
                     uname -a
                     '''
