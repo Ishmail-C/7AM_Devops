@@ -22,7 +22,7 @@ pipeline{
                     echo -e "\n \n"
                     echo -e "\t\t CPU DETAILS"
                     echo -e "\n \n"
-                    top
+                    lscpu
                 }
             }
             stage('Disk details'){
