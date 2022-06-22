@@ -5,18 +5,8 @@ pipeline{
         stage('testing'){
             steps{
 
-		sh 'echo  "Git intigrated with Jenkins"'
-                
-		sh '''
-		echo -e "Git intigrated with Jenkins"
-		                
-		uname -a
-
-                free -h
-
-                df -h
+		sh 'echo -e "Git intigrated with Jenkins"'
 		
-                '''
             }
         }
     }   
