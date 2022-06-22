@@ -1,0 +1,18 @@
+pipeline{
+    agent any
+
+    stages{
+        stage('ip_validation'){
+            steps{
+                sh '''
+                uname -a
+
+                free -h
+
+                df -h
+
+                '''
+            }
+        }
+    }   
+}
