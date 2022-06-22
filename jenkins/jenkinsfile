@@ -8,6 +8,7 @@ pipeline{
 		sh 'echo  "Git intigrated with Jenkins"'
                 
 		sh '''
+		echo -e "Git intigrated with Jenkins"
 		                
 		uname -a
 
