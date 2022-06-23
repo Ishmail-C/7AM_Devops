@@ -3,8 +3,7 @@ pipeline
 agent any
 stages
 {
-stage
-{
+stage('to check system details'){
 steps
 {
 sh '''
