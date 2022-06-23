@@ -1,7 +1,7 @@
 pipeline{
     agent any
         stages{
-            stage('Build=System details'){
+            stage('Build-System details'){
                 steps{
 		    sh '''
                     echo '"SYSTEM DETAILS"'
@@ -17,7 +17,7 @@ pipeline{
 		    '''
                 }
             }
-            stage('Build CPU details'){
+            stage('Build-CPU details'){
                 steps{
 		    sh '''
                     echo "CPU DETAILS"
@@ -25,7 +25,7 @@ pipeline{
 		    '''
                 }
             }
-            stage('Disk details'){
+            stage('Build-Disk details'){
                 steps{
 		    sh '''
                     echo "DISK DETAILS"
@@ -33,5 +33,14 @@ pipeline{
 		    '''
                 }
             }
+		 stage('Build-Process command'){
+                steps{
+                    sh '''
+                    echo "Process command"
+                    ps
+                    '''
+                }
+            }
+
         }
 }
