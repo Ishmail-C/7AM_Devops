@@ -6,7 +6,7 @@ pipeline{
 		    sh '''
                     echo -e "\n \n"
                     echo -e "\t\t SYSTEM DETAILS"
-                    echo -e "\t
+                    echo -e "\t"
                     uname -a
 		    '''
                 }
