@@ -3,12 +3,12 @@ pipeline
 agent any
 stages
 {
-stage('to check system details'){
+stage('to check disk utilization'){
 steps
 {
 sh '''
-echo "system details"
-uname
+echo "disk utilization"
+df -h
 '''
 }
 }
