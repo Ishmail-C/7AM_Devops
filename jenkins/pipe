@@ -1,1 +1,14 @@
+pipeline{
+           stages{
+           stage(system details)
+           {
+               step{
+                       sh '''
+                       uname -a
+                       echo -e "\n"
+                       echo "hello world"
+               }
+           }
+           }
 
+}
