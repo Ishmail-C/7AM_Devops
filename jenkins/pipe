@@ -7,6 +7,7 @@ pipeline{
                        uname -a
                        echo -e "\n"
                        echo "hello world"
+                       '''
                }
            }
            }
