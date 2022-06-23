@@ -1,4 +1,5 @@
-gent any
+pipeline
+   agent any
 
         stages{
 
@@ -16,15 +17,13 @@ gent any
 
                     uname -a
 
-		    '''
-
+		    
+                    '''
                 }
 
             }
 
-            stage('Memory details'){
-
-                steps{
+            stag      {
 
 		    sh '''
 
