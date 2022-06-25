@@ -7,7 +7,7 @@ pipeline{
                     echo -e "\n \n"
                     echo -e "\t\t SYSTEM DETAILS"
                     echo -e "\n \n"	
-                    uname -a
+                    hostname
 		    '''
                 }
             }
