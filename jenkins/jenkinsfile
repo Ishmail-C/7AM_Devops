@@ -11,6 +11,15 @@ pipeline {
                     '''
             }
         }
-
+	stage('memory details'){
+		steps{
+		sh '''
+		echo -e "\n"
+		echo -e "memory details:"
+		echo -e "\n"
+		free
+		'''
+		}
+	}		
      }
 } 
