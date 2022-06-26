@@ -20,6 +20,16 @@ pipeline {
 		free
 		'''
 		}
+	}
+	stage('cpu details'){
+		steps{
+		sh '''
+		echo -e "\n"
+		echo -e "cpu details:"
+		echo -e "\n"
+		lscpu
+		'''
+		}
 	}		
      }
 } 
