@@ -1,0 +1,13 @@
+pipeline {
+    agent any
+
+    stages {
+        stage ('Backup') {
+            steps{
+               sh'''
+               cp -rf /var/lib/jenkins /mnt/backup
+                '''
+            }
+        }
+    }
+}
