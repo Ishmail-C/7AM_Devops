@@ -1,0 +1,19 @@
+pipeline {
+    stages {
+        stage('stage 1') {
+            steps {
+
+            }
+        }
+        stage('stage 2') {
+            steps {
+                script{ 
+                      if (something) {
+                            currentBuild.result = "FAILURE"
+                            sh "exit 1"
+                      }
+                }
+            }
+        }
+    }
+}
