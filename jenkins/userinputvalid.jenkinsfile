@@ -1,0 +1,18 @@
+pipeline {
+    agent none
+    stages {
+        stage("build 1") {
+            input {
+                message "Continue?"
+                id "simple-input"
+                parameters {
+                    booleanParam(defaultValue: true, description: 'Which enivronment to deploy', name: 'Main')
+                    string(defaultValue: "None", description: 'Please enter your name to deploy', name: 'Name')
+                }
+            }
+            steps {
+                echo "Would I like to deploy in ${Main}? ${Node}"
+            }
+        }
+    }
+}
