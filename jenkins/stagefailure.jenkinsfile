@@ -1,0 +1,26 @@
+pipeline {
+    agent any
+    stages {
+        stage("Test1") {
+            steps {
+                sh "exit 1"
+            }
+        }
+        stage("Test2") {
+            steps {
+                parallel(first: {
+                    echo "First branch"
+                },
+                    second: {
+                        echo "Second branch"
+                    })
+            }
+        }
+    }
+    post {
+        failure {
+            echo "Tested sucessfullly"
+        }
+    }
+}
+
