@@ -1,0 +1,110 @@
+pipeline {
+    agent none
+    parameters {
+        booleanParam(name: 'shouldRun', defaultValue: false, description: "a param")
+    }
+    stages {
+        stage("Test1") {
+            steps {
+                echo "Error handling script excution started"
+                sleep 2
+            }
+        }
+        stage("Test2") {
+            parallel {
+                stage("first") {
+                    agent any
+                    when {
+                        expression {
+                            sleep 1
+                            return params.shouldRun == true
+                        }
+                    }
+                    steps {
+                        echo "First branch"
+                    }
+                }
+                stage("second") {
+                    agent any
+                    when {
+                        expression {
+                            return params.shouldRun == true
+                        }
+                    }
+                    steps {
+                        echo "Second branch"
+                    }
+                }
+                stage("third") {
+                    agent any
+                    when {
+                        expression {
+                            return params.shouldRun == true
+                        }
+                    }
+                    steps {
+                        echo "third branch"
+                    }
+                }
+                stage("fourth") {
+                    agent any
+                    when {
+                        expression {
+                            return params.shouldRun == true
+                        }
+                    }
+                    steps {
+                        echo "fourth branch"
+                    }
+                }
+                stage("fifth") {
+                    agent any
+                    when {
+                        expression {
+                            return params.shouldRun == true
+                        }
+                    }
+                    steps {
+                        echo "Fifth branch"
+                    }
+                }
+                stage("sixth") {
+                    agent any
+                    when {
+                        expression {
+                            return params.shouldRun == true
+                        }
+                    }
+                    steps {
+                        echo "sixth branch"
+                    }
+                }
+                
+                stage("seven") {
+                    agent any
+                             
+                    when {
+                        expression {
+                            return params.shouldRun == false
+                        }
+                    }
+                    steps {
+                        echo "ninth branch"
+                    }
+                }
+            }
+            post {
+                always {
+                    sleep 2
+                    echo "script is completed"
+                }
+            }
+        }
+    }
+    post {
+        always {
+            sleep 1
+            echo "ok"
+        }
+    }
+}
