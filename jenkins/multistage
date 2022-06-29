@@ -1,0 +1,33 @@
+pipeline {
+    agent none
+    stages {
+        stage('Run Tests') {
+            parallel {
+                stage('Node1') {
+                    agent {
+                        label "specifice-label" // here node is selected
+                    }
+                    stages {
+                         stage('Start') {  // this will run on the node selected above 
+                              steps { 
+                                 // fetch/compile/install/start JMeter
+                              }
+                         }
+                         stage('Test') {  // this will run on the same node 
+                              steps { 
+                                 // run jmeter
+                              }
+                         }
+
+                    }
+                }
+                stage('Node2') {
+                    agent {
+                        label "specifice-label" // this will select another node
+                    }
+                    // same as above 
+                }
+            }
+        }
+    }
+}
