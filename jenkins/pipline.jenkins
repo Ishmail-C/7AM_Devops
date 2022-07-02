@@ -1,0 +1,13 @@
+pipeline{
+    agent {
+        label 'Node1'
+    }
+    
+    stages{
+        stage(initial){
+            steps{
+                sh 'echo "Hostname: `hostname -I`"'
+            }
+        }
+    }
+}
