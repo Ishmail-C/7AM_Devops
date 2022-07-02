@@ -1,0 +1,22 @@
+
+input id: 'Tag_id', message: 'Proceed?'
+
+List<String> CHOICES = [];
+pipeline {
+    agent any
+stages {
+        stage('User Input') {
+
+
+            steps {
+
+                script {
+                        CHOICES = ["Addition", "Subtraction", "Multiplication", "Division"];    
+                        env.option = input  message: 'Select you option',ok : 'Deploy',id :'tag_id',
+                                        parameters:[choice(choices: CHOICES, description: 'Select a tag for this build', name: 'TAG')]
+                        }           
+                echo "You selected ${env.option}."
+            }
+        }
+}
+}
