@@ -1,25 +1,28 @@
-pipeline{
-    agent any
+pipeline {
+    stages {
         stage('Build Docker Image') {
             steps {
-                script {
-                  sh '''
+            sh '''
 			docker image build -t apache /mywork/git/7AM_Devops/docker/apache
-			
-		     '''
-                }
+			 '''
             }
         }
         stage('Deploy Docker Image') {
             steps {
-                script {
-                 withCredentials([string(credentialsId: 'manoj14061996', variable: 'dockerhubpwd')]) {
+                script{ 
+                       withCredentials([string(credentialsId: 'manoj14061996', variable: 'dockerhubpwd')]) {
+                           
                         sh 'docker login -u devopshint -p ${dockerhubpwd}'
-		 }  
-                 sh 'docker push apache'
+                      }
+                      sh '''
+                      docker image tag apache:latest manoj14061996/apache:latest
+                      docker push manoj14061996/apache:latest
+                      '''
+                      
                 }
             }
         }
     }
+}
  
 
