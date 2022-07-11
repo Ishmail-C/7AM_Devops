@@ -1,40 +1,35 @@
 pipeline {
-  agent any
-  stages {
-    stage('Stage1') {
-      parallel {
-        stage('Stage1') {
-          steps {
-            sh 'echo "Stage1"'
-          }
-        }
+	agent any
+	stages{
 
-        stage('Parallel_02') {
-          steps {
-            sh 'echo "Parallel stage1"'
-          }
-        }
+		stage('clean_up'){
+			steps{
+			   sh ' docker image prune -a --force --filter "until=240h" '
+			   sh ' docker container rm -f c1
+			}
+		}
+		stage('image_build'){
+			steps{
+			   sh '''
+			     
+				docker image build -t v1 /root/docker/ 
+			   '''
+			}
+		}
 
-        stage('Parallel03') {
-          steps {
-            sh 'for i in {1..10}; do echo "Hello $i"&& sleep 1; done'
-          }
-        }
+		stage('image_tag'){
+			steps{
+			   sh '''
+				docker image tag v1:latest vishngonela/v1:latest
+			   '''
+			}
+		}
 
-      }
-    }
-
-    stage('Stage2') {
-      steps {
-        sh 'echo "Hello Stage2"'
-      }
-    }
-
-    stage('Stage3') {
-      steps {
-        sh 'echo "Stage completed"'
-      }
-    }
-
-  }
+		stage('container_creation')
+			steps{
+			   sh '''
+				docker run -d --name c1 vishngonela/v1:latest bash
+			   '''
+			}
+}
 }
