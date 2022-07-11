@@ -25,11 +25,12 @@ pipeline {
 			}
 		}
 
-		stage('container_creation')
+		stage('container_creation'){
 			steps{
 			   sh '''
 				docker run -d --name c1 vishngonela/v1:latest bash
 			   '''
 			}
+		}
 }
 }
