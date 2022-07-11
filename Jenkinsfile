@@ -4,7 +4,7 @@ pipeline {
 
 		stage('clean_up'){
 			steps{
-			   sh ' docker image prune -a --force " '
+			   sh ' docker image prune -a --force  '
 			   sh ' docker container rm -f c1 '
 			}
 		}
