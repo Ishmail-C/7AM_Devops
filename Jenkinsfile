@@ -3,9 +3,12 @@ pipeline {
 	stages{
 
 		stage('clean_up'){
+			
 			steps{
+			   catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE'){
 			   sh ' docker image prune -a --force  '
 			   sh ' docker container rm -f c1 '
+			   }
 			}
 		}
 		stage('image_build'){
