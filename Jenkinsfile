@@ -5,7 +5,7 @@ pipeline {
 		stage('clean_up'){
 			steps{
 			   sh ' docker image prune -a --force --filter "until=240h" '
-			   sh ' docker container rm -f c1
+			   sh ' docker container rm -f c1 '
 			}
 		}
 		stage('image_build'){
