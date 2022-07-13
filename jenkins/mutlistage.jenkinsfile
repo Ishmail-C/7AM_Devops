@@ -19,6 +19,9 @@ pipeline {
                          stage('Test') {  // this will run on the same node 
                               steps { 
                                  // run jmeter    (any steps)
+                                  sh '''
+                                 echo "HI"
+                                 '''
                               }
                          }
 
