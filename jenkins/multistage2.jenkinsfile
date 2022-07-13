@@ -20,7 +20,7 @@ node('Node1') {
 stage "second step on second node"
 
 // Run on a node with the "second-node" label.
-node('NOde2') {
+node('Node2') {
     // Run the unstash from within that directory!
     dir("first-stash") {
         unstash "first-stash"
