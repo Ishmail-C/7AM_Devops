@@ -24,12 +24,12 @@ pipeline {
 
                     }
                 }
-                stage('Node1') {
-                    agent {
-                        label "Node1" // this will select the node that u have specified
-                    }
+               // stage('Node1') {
+                 //   agent {
+                     //   label "Node1" // this will select the node that u have specified
+                 //   }
                     //  (any steps)
-                }
+             //   }
             }
         }
     }
