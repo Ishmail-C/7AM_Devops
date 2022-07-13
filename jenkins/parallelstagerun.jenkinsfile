@@ -5,12 +5,16 @@ pipeline {
             parallel {
                 stage("first") {
                     steps {
+                    sh '''
                         echo "1"
+                    '''
                     }
                 }
                 stage("second") {
                     steps {
+                    sh '''
                         echo "2"
+                    '''
                     }
                 }
             }
