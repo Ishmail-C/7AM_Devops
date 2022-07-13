@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Run Tests') {
             parallel {
-               // stage('Node1') {
+                 stage('Node1') {
                     agent {
                         label "Node1" // here node is selected
                     }
@@ -25,7 +25,7 @@ pipeline {
                               }
                          }
 
-                    //}
+               }
            //     }
                // stage('Node1') {
                  //   agent {
