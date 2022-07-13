@@ -3,11 +3,11 @@ pipeline {
     stages {
         stage('Run Tests') {
             parallel {
-                stage('Node1') {
+               // stage('Node1') {
                     agent {
                         label "Node1" // here node is selected
                     }
-                    stages {
+               //    stages {
                          stage('Start') {  // this will run on the node selected above 
                               steps { 
                                  // fetch/compile/install/start JMeter   (any steps)
@@ -25,8 +25,8 @@ pipeline {
                               }
                          }
 
-                    }
-                }
+                    //}
+           //     }
                // stage('Node1') {
                  //   agent {
                      //   label "Node1" // this will select the node that u have specified
