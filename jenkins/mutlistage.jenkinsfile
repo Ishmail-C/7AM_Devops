@@ -1,0 +1,36 @@
+pipeline {
+    agent none
+    stages {
+        stage('Run Tests') {
+            parallel {
+                stage('Node1') {
+                    agent {
+                        label "Node1" // here node is selected
+                    }
+                    stages {
+                         stage('Start') {  // this will run on the node selected above 
+                              steps { 
+                                 // fetch/compile/install/start JMeter   (any steps)
+                                 sh '''
+                                 echo "HI"
+                                 '''
+                                 }
+                         }
+                         stage('Test') {  // this will run on the same node 
+                              steps { 
+                                 // run jmeter    (any steps)
+                              }
+                         }
+
+                    }
+                }
+                stage('Node1') {
+                    agent {
+                        label "Node1" // this will select the node that u have specified
+                    }
+                    //  (any steps)
+                }
+            }
+        }
+    }
+}
