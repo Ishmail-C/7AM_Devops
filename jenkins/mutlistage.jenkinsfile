@@ -10,6 +10,7 @@ pipeline {
             echo " `hostname` "
                 //checkout scm
                 // do other stuff on master
+                '''
             }
         }
         stage("Test") {
