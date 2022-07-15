@@ -7,10 +7,8 @@ pipeline {
         stage('Build') {
             steps {
             sh '''
-            echo " `hostname` "
-                //checkout scm
-                // do other stuff on master
-                '''
+                echo " `hostname` " 
+            '''
             }
         }
         stage("Test") {
