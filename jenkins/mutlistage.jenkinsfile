@@ -1,38 +1,21 @@
 pipeline {
-    agent none
+    agent any
     stages {
-        stage('Run Tests') {
-            parallel {
-                 stage('Node1') {
-                    agent {
-                        label "Node1" // here node is selected
-                    }
-                              stages {
-                         stage('Start') {  // this will run on the node selected above 
-                              steps { 
-                                 // fetch/compile/install/start JMeter   (any steps)
-                                 sh '''
-                                 echo "HI"
-                                 '''
-                                 }
-                         }
-                         stage('Test') {  // this will run on the same node 
-                              steps { 
-                                 // run jmeter    (any steps)
-                                  sh '''
-                                 echo "HI"
-                                 '''
-                              }
-                         }
-
-               }
+        stage('node') {
+            agent {
+                label 'Node1'
+            }
+            steps {
+                sh 'echo "Node IP:`hostname -I`"'
+                sh 'echo -e "Node-Memory Details:\n"'
+                sh 'free'
+            }
         }
-               // stage('Node1') {
-                 //   agent {
-                     //   label "Node1" // this will select the node that u have specified
-                 //   }
-                    //  (any steps)
-             //   }
+        stage('master') {
+            steps {
+                sh 'echo "Master IP:`hostname -I`"'
+                sh 'echo -e "Master-Memory Details:\n"'
+                sh 'free'
             }
         }
     }
