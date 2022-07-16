@@ -5,11 +5,11 @@ COPY entrypoint.sh /
 RUN chmod 777 /entrypoint.sh
 ENTRYPOINT [ "/entrypoint.sh" ]
 
-FROM ventos:7 as git
-RUN yuminstallgit-y
+FROM centos:7 as git
+RUN yum installgit-y
 
 FROM centos:7 as jenk
-RUN yuminstallopenjdk-y;yuminstalljenkins-y
+RUN yum installopenjdk-y;yuminstalljenkins-y
 
 FROM centos:7 AS docker
 RUN yum install docker -y
