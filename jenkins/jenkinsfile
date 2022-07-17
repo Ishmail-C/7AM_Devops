@@ -15,7 +15,7 @@ pipeline {
 			steps{
 			   sh '''
 			     
-				docker image build -t v1 /root/docker/ 
+				docker image build -t v1 /mywork/docker/job1/docker
 			   '''
 			}
 		}
