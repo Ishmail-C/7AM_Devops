@@ -17,6 +17,6 @@
    volume_size: 8
   instance_tags:
     Name: Ansible
-  security_group: linuxall
+  security_group: Linuxall
    key_name: Key1
 ...
