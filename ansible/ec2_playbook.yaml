@@ -1,0 +1,25 @@
+---
+
+- name: myplaybook
+  hosts: localhost
+
+  tasks:
+    - name: ec2_creation
+      ec2:
+          state: running
+          region: us-east-1
+          image: ami-065efef2c739d613b
+          instance_type: t2.micro
+          wait: yes
+          count: 1
+          vpc_subnet_id: vpc-022526464d588bb3d
+          volumes:
+           - device_name: /dev/xvda
+             snapshot: snap-0c87771c8e09de699
+             volume_type: gp2
+             volume_size: 8
+             instance_tags:
+                Name: Ansible
+          group: Linuxall
+          key_name: Key1
+...
