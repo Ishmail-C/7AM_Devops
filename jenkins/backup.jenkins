@@ -1,0 +1,22 @@
+pipeline{
+    agent any
+        stages{
+            stage('backup'){
+                steps{
+                    sh '''
+                cd /tmp/
+                rm -rf *
+                tar -czvf Jen_backup.tar.gz /var/lib/jenkins
+                echo "Compressing done"
+                tar -xzvf Jen_backup.tar.gz
+                echo "Extract done"
+                '''
+                }
+            }
+            stage('Acknow'){
+                steps{
+                    sh 'echo "Backup done"'
+                }
+            }
+        }
+}
