@@ -1,0 +1,8 @@
+a = int(input("Enter the value of A : "))
+b = int(input("Enter the value of B : "))
+print("\n\nIs A and B values are same?      : " + str(a == b))
+print("Is A is not equal to B?              : " + str(a != b))
+print("Is A is greater than B?              : " + str(a > b))
+print("Is A is less than B?                 : " + str(a < b))
+print("Is A is greater or equals to B?      : " + str(a >= b))
+print("Is A is less than or equals to B?    : " + str(a <= b))
